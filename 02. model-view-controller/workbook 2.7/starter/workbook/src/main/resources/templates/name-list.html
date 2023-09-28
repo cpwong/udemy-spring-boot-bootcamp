@@ -4,5 +4,12 @@
         <title>Name</title>
     </head>
     <body>
+      <p style="font-weight: bold;"
+        th:text="${name}"
+      ></p>
+      <ul th:each="i, ${#strings.length(name)}">
+        <p th:text="${i.name}"></p>
+      </ul>
+
     </body>
 </html>

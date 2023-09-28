@@ -9,7 +9,7 @@ import com.ltp.gradesubmission.repository.GradeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+// @Service
 public class GradeService {
 
     @Autowired

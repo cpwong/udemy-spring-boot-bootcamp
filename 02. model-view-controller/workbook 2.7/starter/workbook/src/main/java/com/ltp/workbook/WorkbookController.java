@@ -9,6 +9,7 @@ public class WorkbookController {
     
     @GetMapping("/")
     public String getName(Model model) {
-        return "name-list";
+      model.addAttribute("name", "Chen Pang");  
+      return "name-list";
     }
 }

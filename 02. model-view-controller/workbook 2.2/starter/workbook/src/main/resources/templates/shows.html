@@ -11,31 +11,32 @@
             <th>Episode</th>
             <th>Rating</th>
           </tr>
-          <tr>
-            <td>Breaking Bad</td>
-            <td>Ozymandias</td>
-            <td>10.0</td>
+          <tr th:object="${show1}">
+            <td th:text="*{title}"></td>
+            <td th:text="*{episode}"></td>
+            <td th:text="*{rating}"></td>
           </tr>
-          <tr>
-            <td>Attack on Titan</td>
-            <td>Hero</td>
-            <td>9.9</td>
+          <tr th:object="${show2}">
+            <td th:text="*{title}"></td>
+            <td th:text="*{episode}"></td>
+            <td th:text="*{rating}"></td>
           </tr>
-          <tr>
-            <td>Attack on Titan</td>
-            <td>Perfect Game</td>
-            <td>9.9</td>
+          <tr th:object="${show3}">
+            <td th:text="*{title}"></td>
+            <td th:text="*{episode}"></td>
+            <td th:text="*{rating}"></td>
           </tr>
-          <tr>
-            <td>Star Wars: The Clone Wars</td>
-            <td>Victory and Death</td>
-            <td>9.9</td>
+          <tr th:object="${show4}">
+            <td th:text="*{title}"></td>
+            <td th:text="*{episode}"></td>
+            <td th:text="*{rating}"></td>
           </tr>
-          <tr>
-            <td>Mr. Robot</td>
-            <td>407 Proxy Authentication Required</td>
-            <td>9.9</td>
+          <tr th:object="${show5}">
+            <td th:text="*{title}"></td>
+            <td th:text="*{episode}"></td>
+            <td th:text="*{rating}"></td>
           </tr>
+
         </table>        
     </body>
 </html>

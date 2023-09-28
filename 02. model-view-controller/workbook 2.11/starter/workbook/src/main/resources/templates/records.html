@@ -2,8 +2,36 @@
 <html>
     <head>
         <title>Sales Records</title>
+        <style>
+          table {
+            border-collapse: collapse;
+            border: 1px solid;
+            width: 100%;
+          }
+          td, tr {
+            border: 1px solid;
+            padding: 5px;
+          }
+        </style>
     </head>
     <body>
         <h2>Sales Records</h2>
+        <table>
+          <tr>
+            <td>Item</td>
+            <td>Revenue</td>
+            <td>Cost</td>
+            <td>Profit</td>
+          </tr>
+          <tr th:each="record: ${records}">
+            <td th:text="${record.item}" />
+            <td th:text="${#numbers.formatCurrency(record.revenue)}" />
+            <td th:text="${#numbers.formatCurrency(record.cost)}" />
+            <td 
+              th:text="${#numbers.formatCurrency(record.revenue - record.cost)}" 
+              th:style="${record.revenue - record.cost >= 0 ? 'background: green' : 'background: red'}"
+            />
+          </tr>
+        </table>
     </body>
 </html>
