@@ -4,9 +4,17 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class StoreService {
+import org.springframework.stereotype.Service;
 
-    StoreRepository storeRepository = new StoreRepository();
+@Service
+public class StoreService {
+    
+    StoreRepository storeRepository;
+
+    public StoreService(StoreRepository storeRepository) {
+      this.storeRepository = storeRepository;
+      
+    }
     
     public Item getItem(int index) {
         return storeRepository.getItem(index);
