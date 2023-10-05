@@ -7,19 +7,17 @@ import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 import java.util.List;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
-
+import org.mockito.junit.jupiter.MockitoExtension;
 import com.ltp.gradesubmission.pojo.Grade;
 import com.ltp.gradesubmission.repository.GradeRepository;
 import com.ltp.gradesubmission.service.GradeService;
 
-@RunWith(MockitoJUnitRunner.class)
-public class GradeServiceTest {
+@ExtendWith(MockitoExtension.class)
+class GradeServiceTest {
   
   @Mock
   private GradeRepository gradeRepository;
@@ -27,8 +25,8 @@ public class GradeServiceTest {
   @InjectMocks
   private GradeService gradeService;
 
-  @Test
-  public void getGradesFromRepoTest() {
+    @Test
+    void getGradesFromRepoTest() {
     when(gradeRepository.getGrades()).thenReturn(Arrays.asList(
       new Grade("Harry", "Potions", "C-"),
       new Grade("Hermione", "Arithmancy", "A+")
@@ -39,8 +37,8 @@ public class GradeServiceTest {
     assertEquals("Arithmancy", result.get(1).getSubject());
   }
 
-  @Test
-  public void gradeIndexTest() {
+    @Test
+    void gradeIndexTest() {
     Grade grade = new Grade("Harry", "Potions", "C-");
     when(gradeRepository.getGrades()).thenReturn(Arrays.asList(grade));
     when(gradeRepository.getGrade(0)).thenReturn(grade);   
@@ -52,8 +50,8 @@ public class GradeServiceTest {
     assertEquals(Constants.NOT_FOUND, notFound);
   }
 
-  @Test
-  public void returnGradeByIdTest() {
+    @Test
+    void returnGradeByIdTest() {
     Grade grade = new Grade("Harry", "Potions", "C-");
     when(gradeRepository.getGrades()).thenReturn(Arrays.asList(grade));
     when(gradeRepository.getGrade(0)).thenReturn(grade);
@@ -64,8 +62,8 @@ public class GradeServiceTest {
     assertEquals(grade, result);
   }
 
-  @Test
-  public void addGradeTest() {
+    @Test
+    void addGradeTest() {
     Grade grade = new Grade("Harry", "Potions", "C-");
     when(gradeRepository.getGrades()).thenReturn(Arrays.asList(grade));
     when(gradeRepository.getGrade(0)).thenReturn(grade);
@@ -74,9 +72,9 @@ public class GradeServiceTest {
     gradeService.submitGrade(newGrade);
     verify(gradeRepository, times(1)).addGrade(newGrade);
   }
-  
-  @Test
-  public void updateGradeTest() {
+
+    @Test
+    void updateGradeTest() {
     Grade grade = new Grade("Harry", "Potions", "C-");
     when(gradeRepository.getGrades()).thenReturn(Arrays.asList(grade));
     when(gradeRepository.getGrade(0)).thenReturn(grade);
